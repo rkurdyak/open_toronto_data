@@ -1,12 +1,14 @@
-# created by virtualenv automatically
-.idea/
-.vscode/
-.venv*/
-venv*/
+.venv/
+
+*.pyc
 __pycache__/
-dist/
-.coverage*
+
+instance/
+
+.pytest_cache/
+.coverage
 htmlcov/
-.tox/
-docs/_build/
-flask/
+
+dist/
+build/
+*.egg-info/
