@@ -1,14 +1,56 @@
-.venv/
-
-*.pyc
+# Byte-compiled / optimized / DLL files
+*.py[cod]
 __pycache__/
 
-instance/
+# C extensions
+*.so
 
-.pytest_cache/
-.coverage
-htmlcov/
-
+# Distribution / packaging
+.Python
 dist/
 build/
 *.egg-info/
+
+# Virtual environments
+.venv/
+venv/
+ENV/
+env/
+myenv/
+
+# Ignore virtual environments anywhere in the project
+**/venv/
+**/.venv/
+**/env/
+**/.env/
+**/myenv/
+
+# Flask instance folder
+instance/
+
+# Pytest
+.pytest_cache/
+
+# Coverage reports
+.coverage
+htmlcov/
+
+# SQLite database files
+*.sqlite3
+*.db
+
+# Environment variables
+.env
+.env.*
+
+# VSCode settings
+.vscode/
+
+# macOS
+.DS_Store
+
+# PyCharm
+.idea/
+
+# System files
+Thumbs.db
