@@ -67,5 +67,11 @@ Thumbs.db
 *.xml
 *.zip
 
+# Jupyter notebooks (can be large) - but allow specific ones
+*.ipynb
+
 # Keep only the processed data file needed for the app
 !simple_website/toronto_map_data.geojson
+
+# Keep the data processing notebook
+!simple_website/data_processing.ipynb
