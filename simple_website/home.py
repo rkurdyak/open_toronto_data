@@ -8,6 +8,8 @@ import pandas as pd
 geojson_folder = Path(__file__).parent / 'GeoJSON' / 'neighbourhoods'
 geojson_files = list(geojson_folder.glob('*.geojson'))
 
+toronto_geojson = gpd.read_file(r'toronto_map_data.geojson')
+
 dropdown_values = {
     'statistics': ['Median Age',
                    'Median Total Income',
@@ -72,7 +74,12 @@ app.layout = html.Div([
         value = 'Median Age'
     ),
     html.Div([
-    dcc.Graph(id = 'plot1')
+    dcc.Graph(
+        id = 'plot1',
+        config = {
+            'scrollZoom':True
+        }
+        )
     ])
 ])
 
@@ -88,18 +95,21 @@ def update_figures(selected_neighbourhoods, selected_dropdown):
     fig = go.Figure()
     
     # Set initial map bounds for Toronto
+    # Expand Toronto bounds by ~25% for more breathing room
+    lat_buffer = (43.8555 - 43.5800) * 0.25
+    lon_buffer = (79.6392 - 79.1150) * 0.25
+
     toronto_bounds = {
-        'north': 43.8555,  # Northern boundary
-        'south': 43.5800,  # Southern boundary
-        'east': -79.1150,  # Eastern boundary
-        'west': -79.6392   # Western boundary
+        'north': 43.8555 + lat_buffer,  # Expanded northern boundary
+        'south': 43.5800 - lat_buffer,  # Expanded southern boundary
+        'east': -79.1150 + lon_buffer,  # Expanded eastern boundary (less negative)
+        'west': -79.6392 - lon_buffer   # Expanded western boundary (more negative)
     }
     
     # Get the global min and max for the selected statistic
     min_val = stat_ranges[selected_dropdown]['min']
     max_val = stat_ranges[selected_dropdown]['max']
     
-    # Only show colorbar for the first neighborhood to avoid overlapping
     for i, name in enumerate(selected_neighbourhoods):
         gj = geojson_data[name]
         

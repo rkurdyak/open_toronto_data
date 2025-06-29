@@ -54,3 +54,18 @@ htmlcov/
 
 # System files
 Thumbs.db
+
+# Large data files (should be stored elsewhere)
+*.xlsx
+*.xls
+*.csv
+*.geojson
+*.shp
+*.shx
+*.dbf
+*.prj
+*.xml
+*.zip
+
+# Keep only the processed data file needed for the app
+!simple_website/toronto_map_data.geojson
