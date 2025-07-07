@@ -1,0 +1,14 @@
+{
+  "builds": [
+    {
+      "src": "simple_website/one_geojson_test.py",
+      "use": "@vercel/python"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "simple_website/one_geojson_test.py"
+    }
+  ]
+} 
