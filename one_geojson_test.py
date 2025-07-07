@@ -47,8 +47,8 @@ centre_lat, centre_lon = 43.6532, -79.3832
 
 # Initialise Dash app
 app = Dash(__name__, 
-           requests_pathname_prefix='/simple_website/', 
-           routes_pathname_prefix='/simple_website/', 
+        #    requests_pathname_prefix='/simple_website/', 
+        #    routes_pathname_prefix='/simple_website/', 
            external_stylesheets=[dbc.themes.BOOTSTRAP])
 server = app.server
 # Layout with DBC components
