@@ -75,3 +75,6 @@ Thumbs.db
 
 # Keep the data processing notebook
 !simple_website/data_processing.ipynb
+
+# Specifically ignore the large mapping notebook
+flaskr/mapping.ipynb
